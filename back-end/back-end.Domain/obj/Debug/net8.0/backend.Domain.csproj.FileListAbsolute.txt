@@ -1,0 +1,12 @@
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\bin\Debug\net8.0\backend.Domain.deps.json
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\bin\Debug\net8.0\backend.Domain.dll
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\bin\Debug\net8.0\backend.Domain.pdb
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\obj\Debug\net8.0\backend.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\obj\Debug\net8.0\backend.Domain.AssemblyInfoInputs.cache
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\obj\Debug\net8.0\backend.Domain.AssemblyInfo.cs
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\obj\Debug\net8.0\backend.Domain.csproj.CoreCompileInputs.cache
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\obj\Debug\net8.0\backend.Domain.sourcelink.json
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\obj\Debug\net8.0\backend.Domain.dll
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\obj\Debug\net8.0\refint\backend.Domain.dll
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\obj\Debug\net8.0\backend.Domain.pdb
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Domain\obj\Debug\net8.0\ref\backend.Domain.dll

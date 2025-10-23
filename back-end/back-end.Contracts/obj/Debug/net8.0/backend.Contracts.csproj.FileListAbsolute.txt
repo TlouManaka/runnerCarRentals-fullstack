@@ -1,0 +1,12 @@
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\bin\Debug\net8.0\backend.Contracts.deps.json
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\bin\Debug\net8.0\backend.Contracts.dll
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\bin\Debug\net8.0\backend.Contracts.pdb
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\obj\Debug\net8.0\backend.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\obj\Debug\net8.0\backend.Contracts.AssemblyInfoInputs.cache
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\obj\Debug\net8.0\backend.Contracts.AssemblyInfo.cs
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\obj\Debug\net8.0\backend.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\obj\Debug\net8.0\backend.Contracts.sourcelink.json
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\obj\Debug\net8.0\backend.Contracts.dll
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\obj\Debug\net8.0\refint\backend.Contracts.dll
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\obj\Debug\net8.0\backend.Contracts.pdb
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Contracts\obj\Debug\net8.0\ref\backend.Contracts.dll

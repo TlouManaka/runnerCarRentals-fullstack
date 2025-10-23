@@ -1,0 +1,12 @@
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\bin\Debug\net8.0\backend.Infrastructure.deps.json
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\bin\Debug\net8.0\backend.Infrastructure.dll
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\bin\Debug\net8.0\backend.Infrastructure.pdb
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\obj\Debug\net8.0\backend.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\obj\Debug\net8.0\backend.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\obj\Debug\net8.0\backend.Infrastructure.AssemblyInfo.cs
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\obj\Debug\net8.0\backend.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\obj\Debug\net8.0\backend.Infrastructure.sourcelink.json
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\obj\Debug\net8.0\backend.Infrastructure.dll
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\obj\Debug\net8.0\refint\backend.Infrastructure.dll
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\obj\Debug\net8.0\backend.Infrastructure.pdb
+C:\Users\TlouManaka\OneDrive - Future Business Consulting\Documents\GitHub\runnerCarRentals-fullstack\back-end\back-end.Infrastructure\obj\Debug\net8.0\ref\backend.Infrastructure.dll
