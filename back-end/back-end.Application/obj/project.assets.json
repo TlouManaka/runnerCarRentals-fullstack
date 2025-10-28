@@ -1,11 +1,77 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.10": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "back-end.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/back-end.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/back-end.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.10": {
+      "sha512": "r9waLiOPe9ZF1PvzUT+RDoHvpMmY8MW+lb4lqjYGObwKpnyPMLI3odVvlmshwuZcdoHynsGWOrCPA0hxZ63lIA==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/9.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.9.0.10.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "back-end.Domain/1.0.0": {
+      "type": "project",
+      "path": "../back-end.Domain/back-end.Domain.csproj",
+      "msbuildProject": "../back-end.Domain/back-end.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "Microsoft.Extensions.DependencyInjection.Abstractions >= 9.0.10",
+      "back-end.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\TlouManaka\\.nuget\\packages\\": {},
@@ -14,9 +80,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Application\\backend.Application.csproj",
-      "projectName": "backend.Application",
-      "projectPath": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Application\\backend.Application.csproj",
+      "projectUniqueName": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Application\\back-end.Application.csproj",
+      "projectName": "back-end.Application",
+      "projectPath": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Application\\back-end.Application.csproj",
       "packagesPath": "C:\\Users\\TlouManaka\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Application\\obj\\",
       "projectStyle": "PackageReference",
@@ -38,7 +104,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Domain\\back-end.Domain.csproj": {
+              "projectPath": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Domain\\back-end.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -56,6 +126,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": {
+            "target": "Package",
+            "version": "[9.0.10, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

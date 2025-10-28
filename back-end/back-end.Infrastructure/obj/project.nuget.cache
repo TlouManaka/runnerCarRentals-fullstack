@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4QhUF9N/Nik=",
+  "dgSpecHash": "YFQl6vDHvME=",
   "success": true,
-  "projectFilePath": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Infrastructure\\backend.Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Infrastructure\\back-end.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\TlouManaka\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.10\\microsoft.extensions.dependencyinjection.abstractions.9.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

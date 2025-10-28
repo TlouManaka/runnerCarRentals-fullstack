@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Domain\\backend.Domain.csproj",
-      "projectName": "backend.Domain",
-      "projectPath": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Domain\\backend.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Domain\\back-end.Domain.csproj",
+      "projectName": "back-end.Domain",
+      "projectPath": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Domain\\back-end.Domain.csproj",
       "packagesPath": "C:\\Users\\TlouManaka\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Domain\\obj\\",
       "projectStyle": "PackageReference",
