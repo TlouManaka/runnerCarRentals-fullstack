@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root{
+
+    /* Font family Definition */
+    --font-family: 'Robot,','Inter',Arial,sans-serif;
+
+
+    /* Font size Scale*/
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-szie-h1: 2.5rem;
+    --font-szie-h2: 2rem;
+    --font-size-h3: 1.5rem;
+    --font-size-h4: 1.25rem;
+
+
+    /*
+    Global colors
+    */
+
+    --color-primary: #0077B6;
+    --color-accent: #FCA311;
+    --color-background-light: #FFFFFF;
+    --color-background-medium: #F7F8FA;
+    --color-border: #DCDCDC;
+    --color-text-dark: #14213D;
+    --color-text-medium: #555555;
+    --color-status-success: #38A3A5;
+    --color-status-warning: #FFBF69;
+    --color-status-danger: #D62828;
+}
+
+
+html, body { height: 100%; }
+body {
+     margin: 0; 
+     font-family: var(--font-family); 
+     background-color: var(--color-background-light);
+     color: var(--color-primary);
+    }
+
