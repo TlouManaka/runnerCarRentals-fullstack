@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\back-end.Api",
+    "\\back-end.Api\\Controllers"
   ],
-  "SelectedNode": "\\back-end.sln",
+  "SelectedNode": "\\back-end.Api\\back-end.Api.csproj",
   "PreviewInSolutionExplorer": false
 }

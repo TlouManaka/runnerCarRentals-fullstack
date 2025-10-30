@@ -64,3 +64,5 @@ POST{{host}}/auth/login
     
 }
 ```
+
+#### Login Response

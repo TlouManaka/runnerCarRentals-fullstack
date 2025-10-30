@@ -4,7 +4,10 @@ POST {{host}}/auth/register
 Content-Type: application/json
 
 {
-
+    "fullName":"Jane Deo",
     "email": "jane@demo.com",
-    "password": "Secure123"
+    "password": "Secure123",
+    "driverLicenseNumber":"SDSAJKJASD",
+    "Token":"askdkdsa_msadk"
+    
 }

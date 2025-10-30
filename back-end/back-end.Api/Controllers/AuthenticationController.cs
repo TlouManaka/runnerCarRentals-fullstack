@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 namespace backend.Application;
-
+using backend.Contracts;
 
 [ApiController]
 [Route("auth")]
