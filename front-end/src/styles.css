@@ -10,9 +10,7 @@
 
     /* Font size Scale*/
      --font-size-1: 16px;
-     --font-szie-2: 18px;
-    
-    
+     --font-szie-2: 12px;
 
     /*
     Global colors
@@ -29,6 +27,10 @@
     --color-status-success: #38A3A5;
     --color-status-warning: #FFBF69;
     --color-status-danger: #D62828;
+
+
+    /*Global Padding spacing
+    */
 }
 
 

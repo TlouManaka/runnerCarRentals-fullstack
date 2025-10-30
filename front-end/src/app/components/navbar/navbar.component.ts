@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { MatIconRegistry, MatIcon } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import {MatIconModule} from '@angular/material/icon';
-
+import { MatSlideToggle } from "@angular/material/slide-toggle";
+import { RouterLink,RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [MatIcon],
+  imports: [MatIcon, RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
