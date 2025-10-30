@@ -1,19 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :root{
 
     /* Font family Definition */
-    --font-family: 'Robot,','Inter',Arial,sans-serif;
+    --font-family: 'Inter',Arial,sans-serif;
 
 
     /* Font size Scale*/
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-szie-h1: 2.5rem;
-    --font-szie-h2: 2rem;
-    --font-size-h3: 1.5rem;
-    --font-size-h4: 1.25rem;
-
+     --font-size-1: 16px;
+     --font-szie-2: 18px;
+    
+    
 
     /*
     Global colors
@@ -24,7 +23,8 @@
     --color-background-light: #FFFFFF;
     --color-background-medium: #F7F8FA;
     --color-border: #DCDCDC;
-    --color-text-dark: #14213D;
+
+    --color-text-dark: #000000;
     --color-text-medium: #555555;
     --color-status-success: #38A3A5;
     --color-status-warning: #FFBF69;
@@ -37,6 +37,6 @@ body {
      margin: 0; 
      font-family: var(--font-family); 
      background-color: var(--color-background-light);
-     color: var(--color-primary);
+     color: var(--color-text-dark);
     }
 
