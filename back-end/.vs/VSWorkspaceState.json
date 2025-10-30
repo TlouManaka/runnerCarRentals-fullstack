@@ -1,9 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< Updated upstream
     "\\back-end.Api",
     "\\back-end.Api\\Controllers"
   ],
   "SelectedNode": "\\back-end.Api\\back-end.Api.csproj",
+=======
+    "\\back-end.Infrastructure\\bin\\Debug"
+  ],
+  "SelectedNode": "\\back-end.Api",
+>>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }

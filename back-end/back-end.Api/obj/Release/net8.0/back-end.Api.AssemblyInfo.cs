@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("back-end.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c22818c82445427ead8a4bb6a26a5a00eb106f2c")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d3c03861fd7341a14b1f83a155ce65fb0fc94a6")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("back-end.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("back-end.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
