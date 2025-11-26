@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 namespace backend.Application;
 using backend.Contracts;
+using Microsoft.AspNetCore.Authorization;
 
 [ApiController]
 [Route("auth")]
@@ -19,19 +20,15 @@ public class AuthenticationController : ControllerBase
     {
 
         var authResult = _authenticationService.Register(
-            registerRequest.FullName,
-            registerRequest.Password,
-            registerRequest.Email,
-            registerRequest.DriverLicenseNumber
 
+            registerRequest.Password,
+            registerRequest.Email
         );
 
         var response = new AuthenticationResponse(
 
             authResult.user.Id,
-            authResult.user.FullName,
             authResult.user.Email,
-            authResult.user.DriverLicenseNumber,
             authResult.Token
 
         );
@@ -55,9 +52,7 @@ public class AuthenticationController : ControllerBase
           var response = new AuthenticationResponse(
 
             authResult.user.Id,
-            authResult.user.FullName,
             authResult.user.Email,
-            authResult.user.DriverLicenseNumber,
             authResult.Token
 
         );

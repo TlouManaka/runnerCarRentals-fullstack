@@ -44,7 +44,7 @@ public class AuhthenticationService : IAuthenticationService
         );
     }
 
-    public AuthenticationResult Register(string fullName, string email, string password, string driverLicenseNumber)
+    public AuthenticationResult Register( string email, string password)
     {
 
         //check if user already exists
@@ -55,11 +55,8 @@ public class AuhthenticationService : IAuthenticationService
         //create user (generate unique ID)
         var user  =  new User
         {
-            FullName = fullName,
             Email = email,
-            Password = password,
-            DriverLicenseNumber = driverLicenseNumber
-
+            Password = password
         };
 
         _userRepository.Add(user);

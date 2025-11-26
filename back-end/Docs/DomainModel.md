@@ -1,8 +1,6 @@
 # Domain Models
 
 ## User 
-
-
 ```json
 {
     "id":"000000-0000-000-000-0000000000",
@@ -12,3 +10,12 @@
 }
 ```
 > Note: Password shouldn't be laying around like this
+
+
+## UserProfile
+```json
+{
+
+
+}
+```

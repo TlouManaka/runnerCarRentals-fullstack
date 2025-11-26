@@ -7,8 +7,16 @@
      --- [Register Response](#register-response)
     --[Login](#login)
     --- [Login Request](#login-request)
-    --- [Login Response](#Login-response)
-    -[Customer](#Customer)
+    --- [Login Response](#login-response)
+    -[Customer](#customer)
+    --[Create Profile](#create-profile)
+    --- [Create Profile Request](#create-profile-response)
+    --- [Ccreate Profile Response](#create-profile-response)
+    --[Update Profile](#update-profile)
+    --- [Update Profile Request](#update-profile-request)
+    --- [Update Profile Response](#update-profile-response)
+    --[Delete Profile](#delete-profile)
+    --- [Delete Profile Response](#delete-profile-response)
 
 
 # Auth
@@ -58,5 +66,10 @@ POST{{host}}/auth/login
 ```
 
 # Customer 
+```js
+ POST{{host}}/customer/profile
+```
+#### Create Profile Request
 
-## 
+
+#### Create Profile Response
