@@ -3,17 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\",
   "Documents": [
     {
-<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Api\\Controllers\\AuthenticationController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end.Api\\Controllers\\AuthenticationController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Infrastructure\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end.Infrastructure\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Infrastructure\\bac-kend.Infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:back-end.Infrastructure\\bac-kend.Infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
->>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -36,38 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-<<<<<<< Updated upstream
               "Title": "AuthenticationController.cs",
               "DocumentMoniker": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Api\\Controllers\\AuthenticationController.cs",
               "RelativeDocumentMoniker": "back-end.Api\\Controllers\\AuthenticationController.cs",
               "ToolTip": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Api\\Controllers\\AuthenticationController.cs",
               "RelativeToolTip": "back-end.Api\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T11:45:07.999Z",
-=======
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Infrastructure\\Class1.cs",
-              "RelativeDocumentMoniker": "back-end.Infrastructure\\Class1.cs",
-              "ToolTip": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Infrastructure\\Class1.cs",
-              "RelativeToolTip": "back-end.Infrastructure\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T12:25:57.256Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "bac-kend.Infrastructure.csproj",
-              "DocumentMoniker": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Infrastructure\\bac-kend.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "back-end.Infrastructure\\bac-kend.Infrastructure.csproj",
-              "ToolTip": "C:\\Users\\TlouManaka\\OneDrive - Future Business Consulting\\Documents\\GitHub\\runnerCarRentals-fullstack\\back-end\\back-end.Infrastructure\\bac-kend.Infrastructure.csproj",
-              "RelativeToolTip": "back-end.Infrastructure\\bac-kend.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-23T12:25:52.504Z",
->>>>>>> Stashed changes
               "EditorCaption": ""
             }
           ]

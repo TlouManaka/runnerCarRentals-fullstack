@@ -1,10 +1,9 @@
+using backend.Domain.Entities;
+
 namespace backend.Application;
 
 public record AuthenticationResult(
 
-Guid Id,
-string FulltName,
-string Email,
-string DriverLicenseNumber,
+User user,
 string Token
 );

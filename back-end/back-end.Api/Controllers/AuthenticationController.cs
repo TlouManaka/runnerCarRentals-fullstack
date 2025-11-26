@@ -28,10 +28,10 @@ public class AuthenticationController : ControllerBase
 
         var response = new AuthenticationResponse(
 
-            authResult.Id,
-            authResult.FulltName,
-            authResult.Email,
-            authResult.DriverLicenseNumber,
+            authResult.user.Id,
+            authResult.user.FullName,
+            authResult.user.Email,
+            authResult.user.DriverLicenseNumber,
             authResult.Token
 
         );
@@ -54,10 +54,10 @@ public class AuthenticationController : ControllerBase
         
           var response = new AuthenticationResponse(
 
-            authResult.Id,
-            authResult.FulltName,
-            authResult.Email,
-            authResult.DriverLicenseNumber,
+            authResult.user.Id,
+            authResult.user.FullName,
+            authResult.user.Email,
+            authResult.user.DriverLicenseNumber,
             authResult.Token
 
         );

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bac-kend.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d3c03861fd7341a14b1f83a155ce65fb0fc94a6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e005e86cccabce7347c60fc13651fb713a80f142")]
 [assembly: System.Reflection.AssemblyProductAttribute("bac-kend.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bac-kend.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

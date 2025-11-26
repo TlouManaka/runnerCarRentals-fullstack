@@ -10,16 +10,12 @@
     --- [Login Response](#Login-response)
 
 
-## Auth
-
+# Auth
 ### Register 
-
 
 ```js
 POST{{host}}/auth/register
-
 ```
-
 #### Register Request
 
 ```json
@@ -34,35 +30,35 @@ POST{{host}}/auth/register
 #### Register Response
 ```json
 {
-    
-}
-```
-```json
-{
     "id":"d5as87-89a8s-as9das-asd",
     "fllName": "Jane Doe",
     "eamil":"jane@demo.com",
     "driverLicenseNumber":"AB123456",
     "token":"eyjh..akjkjkdsad"
-
 }
 ```
 ### Login
 
 ```js
 POST{{host}}/auth/login
-
 ```
 
 #### Login Request
 
 ```json
 {
-
     "email": "jane@demo.com",
     "password": "Secure123",
-    
 }
 ```
-
 #### Login Response
+
+```json
+{
+    "id": "3de9b18d-7c32-490d-ac79-97e6b4c54d81",
+    "fulltName": " fullName",
+    "email": "Secure123",
+    "driverLicenseNumber": "driverLicenseNumber",
+    "token": "token"
+}
+```
