@@ -1,5 +1,5 @@
-# runnerCarRentals-fullstack:
-RunnerCarRentals is a complete full-stack web application for managing car rentals, built to demonstrate proficiency in modern web development and Clean Architecture principles.
+# RunnerCarRentals-fullstack: (Angular, Asp.net core web and  SQL server)
+Runner CarRentals is a complete full-stack web application for managing car rentals, built to demonstrate proficiency in modern web development and Clean Architecture principles.
 
 💡 Project Focus: Clean Architecture & SOLID
 
