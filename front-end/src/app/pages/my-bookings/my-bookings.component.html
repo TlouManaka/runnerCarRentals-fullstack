@@ -1,0 +1,78 @@
+<section class="page">
+  <div class="page-header">
+    <div>
+      <p class="eyebrow">Your account</p>
+      <h1>My bookings</h1>
+      <p class="muted mb-0">Track requests, confirmed trips and past rentals.</p>
+    </div>
+    <a class="btn btn-outline-secondary" routerLink="/cars">Book another car</a>
+  </div>
+
+  @if (error()) {
+    <div class="alert alert-danger" role="alert">{{ error() }}</div>
+  }
+
+  @if (loading()) {
+    <p class="muted">Loading your bookings...</p>
+  } @else if (bookings().length === 0) {
+    <div class="empty-state surface">
+      <h2 class="h5">No bookings yet</h2>
+      <p>Browse the fleet and request your first rental.</p>
+      <a class="btn btn-primary" routerLink="/cars">Browse vehicles</a>
+    </div>
+  } @else {
+    <div class="booking-list">
+      @for (booking of bookings(); track booking.id) {
+        <article class="booking-card surface">
+          <img
+            class="booking-image"
+            [src]="booking.imageUrl || 'assets/logo.svg'"
+            [alt]="booking.carName" />
+
+          <div class="booking-info">
+            <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
+              <div>
+                <h2>{{ booking.carName }}</h2>
+                <p class="muted mb-0">{{ booking.licensePlate }} &middot; Booked {{ booking.createdAtUtc | date: 'mediumDate' }}</p>
+              </div>
+              <span [class]="statusClass(booking.status)">{{ booking.status }}</span>
+            </div>
+
+            <dl class="booking-dates">
+              <div>
+                <dt>Pick-up</dt>
+                <dd>{{ booking.startDate | date: 'mediumDate' }}</dd>
+              </div>
+              <div>
+                <dt>Drop-off</dt>
+                <dd>{{ booking.endDate | date: 'mediumDate' }}</dd>
+              </div>
+              <div>
+                <dt>Duration</dt>
+                <dd>{{ booking.rentalDays }} day(s)</dd>
+              </div>
+              <div>
+                <dt>Total</dt>
+                <dd>{{ booking.totalPrice | currency: 'ZAR' : 'symbol-narrow' : '1.2-2' }}</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="booking-actions">
+            <a class="btn btn-outline-secondary btn-sm" [routerLink]="['/cars', booking.carId]">View car</a>
+
+            @if (canCancel(booking)) {
+              <button
+                class="btn btn-outline-danger btn-sm"
+                type="button"
+                [disabled]="cancellingId() === booking.id"
+                (click)="cancel(booking)">
+                {{ cancellingId() === booking.id ? 'Cancelling...' : 'Cancel' }}
+              </button>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

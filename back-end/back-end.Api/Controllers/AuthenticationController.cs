@@ -1,13 +1,14 @@
-using Microsoft.AspNetCore.Mvc;
-namespace backend.Application;
+using backend.Application;
 using backend.Contracts;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace backend.Api.Controllers;
 
 [ApiController]
-[Route("auth")]
+[Route("api/auth")]
 public class AuthenticationController : ControllerBase
 {
-
     private readonly IAuthenticationService _authenticationService;
 
     public AuthenticationController(IAuthenticationService authenticationService)
@@ -16,52 +17,38 @@ public class AuthenticationController : ControllerBase
     }
 
     [HttpPost("register")]
-    public IActionResult Register(RegisterRequest registerRequest)
+    [AllowAnonymous]
+    public async Task<ActionResult<AuthenticationResponse>> Register(
+        RegisterRequest request,
+        CancellationToken cancellationToken)
     {
+        var result = await _authenticationService.RegisterAsync(
+            request.FullName,
+            request.Email,
+            request.Password,
+            cancellationToken);
 
-        var authResult = _authenticationService.Register(
-
-            registerRequest.Password,
-            registerRequest.Email
-        );
-
-        var response = new AuthenticationResponse(
-
-            authResult.user.Id,
-            authResult.user.Email,
-            authResult.Token
-
-        );
-        
-        return Ok(response);
+        return Ok(ToResponse(result));
     }
-
 
     [HttpPost("login")]
-    public IActionResult Login(LoginRequest loginRequest)
+    [AllowAnonymous]
+    public async Task<ActionResult<AuthenticationResponse>> Login(
+        LoginRequest request,
+        CancellationToken cancellationToken)
     {
+        var result = await _authenticationService.LoginAsync(
+            request.Email,
+            request.Password,
+            cancellationToken);
 
-        var authResult = _authenticationService.Login(
-
-       loginRequest.Password,
-       loginRequest.Email
-
-
-   );
-        
-          var response = new AuthenticationResponse(
-
-            authResult.user.Id,
-            authResult.user.Email,
-            authResult.Token
-
-        );
-
-        return Ok(response);
+        return Ok(ToResponse(result));
     }
 
-
-
+    private static AuthenticationResponse ToResponse(AuthenticationResult result) => new(
+        result.User.Id,
+        result.User.FullName,
+        result.User.Email,
+        result.User.UserRole,
+        result.Token);
 }
-
-

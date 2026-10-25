@@ -1,21 +1,29 @@
-
 using backend.Application.Common.Interfaces.Persistence;
 using backend.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Infrastructure.Persistence;
 
-
 public class UserRepository : IUserRepository
 {
+    private readonly AppDbContext _dbContext;
 
-    private static readonly List<User> _users = new ();
-    public void Add(User user)
+    public UserRepository(AppDbContext dbContext)
     {
-        _users.Add (user);
+        _dbContext = dbContext;
     }
 
-    public User? GetUserByEmail(string email)
+    public Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken = default) =>
+        _dbContext.Users.SingleOrDefaultAsync(u => u.Email == email, cancellationToken);
+
+    public Task<User?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default) =>
+        _dbContext.Users.FindAsync(new object[] { id }, cancellationToken).AsTask();
+
+    public Task<bool> EmailExistsAsync(string email, CancellationToken cancellationToken = default) =>
+        _dbContext.Users.AnyAsync(u => u.Email == email, cancellationToken);
+
+    public async Task AddAsync(User user, CancellationToken cancellationToken = default)
     {
-        return _users.SingleOrDefault(x => x.Email == email);
+        await _dbContext.Users.AddAsync(user, cancellationToken);
     }
 }

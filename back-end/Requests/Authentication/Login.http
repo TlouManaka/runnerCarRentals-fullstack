@@ -1,9 +1,18 @@
 @host=http://localhost:5031
 
-POST {{host}}/auth/login
+# @name login
+POST {{host}}/api/auth/login
 Content-Type: application/json
 
 {
     "email": "jane@demo.com",
     "password": "Secure123"
 }
+
+###
+@token = {{login.response.body.token}}
+
+# Any authenticated endpoint proves the token is valid
+GET {{host}}/api/bookings/mine
+Authorization: Bearer {{token}}
+Accept: application/json

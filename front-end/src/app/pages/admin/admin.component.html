@@ -1,0 +1,211 @@
+<section class="page">
+  <div class="page-header">
+    <div>
+      <p class="eyebrow">Admin</p>
+      <h1>Fleet &amp; booking control</h1>
+      <p class="muted mb-0">Manage inventory and move bookings through their lifecycle.</p>
+    </div>
+  </div>
+
+  @if (error()) {
+    <div class="alert alert-danger" role="alert">{{ error() }}</div>
+  }
+
+  @if (success()) {
+    <div class="alert alert-success" role="alert">{{ success() }}</div>
+  }
+
+  <div class="admin-tabs">
+    <button
+      class="admin-tab"
+      type="button"
+      [class.active]="tab() === 'cars'"
+      (click)="switchTab('cars')">
+      Vehicles ({{ cars().length }})
+    </button>
+    <button
+      class="admin-tab"
+      type="button"
+      [class.active]="tab() === 'bookings'"
+      (click)="switchTab('bookings')">
+      Bookings ({{ bookings().length }})
+    </button>
+  </div>
+
+  @if (loading()) {
+    <p class="muted mt-3">Loading admin data...</p>
+  } @else if (tab() === 'cars') {
+    <div class="d-flex justify-content-end mt-3">
+      <button class="btn btn-primary" type="button" (click)="startCreate()">Add vehicle</button>
+    </div>
+
+    @if (showForm()) {
+      <form class="surface admin-form mt-3" [formGroup]="form" (ngSubmit)="save()">
+        <h2 class="h5 mb-3">{{ editingId() ? 'Edit vehicle' : 'New vehicle' }}</h2>
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label" for="make">Make</label>
+            <input id="make" class="form-control" formControlName="make" />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="model">Model</label>
+            <input id="model" class="form-control" formControlName="model" />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="year">Year</label>
+            <input id="year" class="form-control" type="number" formControlName="year" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label" for="licensePlate">License plate</label>
+            <input id="licensePlate" class="form-control" formControlName="licensePlate" />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="dailyRate">Daily rate (ZAR)</label>
+            <input id="dailyRate" class="form-control" type="number" step="0.01" formControlName="dailyRate" />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="seats">Seats</label>
+            <input id="seats" class="form-control" type="number" formControlName="seats" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label" for="transmission">Transmission</label>
+            <select id="transmission" class="form-select" formControlName="transmission">
+              <option value="Manual">Manual</option>
+              <option value="Automatic">Automatic</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="fuelType">Fuel type</label>
+            <select id="fuelType" class="form-select" formControlName="fuelType">
+              <option value="Petrol">Petrol</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="Electric">Electric</option>
+            </select>
+          </div>
+          <div class="col-md-4 d-flex align-items-end">
+            <div class="form-check mb-2">
+              <input id="isAvailable" class="form-check-input" type="checkbox" formControlName="isAvailable" />
+              <label class="form-check-label" for="isAvailable">Available for booking</label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label" for="imageUrl">Image URL</label>
+            <input id="imageUrl" class="form-control" formControlName="imageUrl" placeholder="https://..." />
+          </div>
+          <div class="col-12">
+            <label class="form-label" for="description">Description</label>
+            <textarea id="description" class="form-control" rows="3" formControlName="description"></textarea>
+          </div>
+        </div>
+
+        @if (form.invalid && (form.touched || form.dirty)) {
+          <p class="text-danger small mt-3 mb-0">Please complete all required fields with valid values.</p>
+        }
+
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary" type="submit" [disabled]="saving()">
+            {{ saving() ? 'Saving...' : 'Save vehicle' }}
+          </button>
+          <button class="btn btn-outline-secondary" type="button" (click)="cancelForm()">Cancel</button>
+        </div>
+      </form>
+    }
+
+    <div class="table-responsive surface mt-3">
+      <table class="table align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Vehicle</th>
+            <th>Plate</th>
+            <th>Rate</th>
+            <th>Specs</th>
+            <th>Status</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (car of cars(); track car.id) {
+            <tr>
+              <td>
+                <strong>{{ car.make }} {{ car.model }}</strong>
+                <div class="muted small">{{ car.year }}</div>
+              </td>
+              <td>{{ car.licensePlate }}</td>
+              <td>{{ car.dailyRate | currency: 'ZAR' : 'symbol-narrow' : '1.0-0' }}</td>
+              <td class="small muted">{{ car.seats }} seats &middot; {{ car.transmission }} &middot; {{ car.fuelType }}</td>
+              <td>
+                <span [class]="statusClass(car.isAvailable ? 'Confirmed' : 'Cancelled')">
+                  {{ car.isAvailable ? 'Available' : 'Unavailable' }}
+                </span>
+              </td>
+              <td class="text-end">
+                <button class="btn btn-sm btn-outline-secondary me-2" type="button" (click)="startEdit(car)">Edit</button>
+                <button class="btn btn-sm btn-outline-danger" type="button" (click)="remove(car)">Delete</button>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="6" class="text-center muted py-4">No vehicles yet.</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else {
+    <div class="table-responsive surface mt-3">
+      <table class="table align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Vehicle</th>
+            <th>Dates</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (booking of bookings(); track booking.id) {
+            <tr>
+              <td>
+                <strong>{{ booking.customerName }}</strong>
+                <div class="muted small">{{ booking.customerEmail }}</div>
+              </td>
+              <td>
+                <strong>{{ booking.carName }}</strong>
+                <div class="muted small">{{ booking.licensePlate }}</div>
+              </td>
+              <td class="small">
+                {{ booking.startDate | date: 'mediumDate' }} &ndash;
+                {{ booking.endDate | date: 'mediumDate' }}
+                <div class="muted">{{ booking.rentalDays }} day(s)</div>
+              </td>
+              <td>{{ booking.totalPrice | currency: 'ZAR' : 'symbol-narrow' : '1.2-2' }}</td>
+              <td>
+                <div class="d-flex align-items-center gap-2">
+                  <span [class]="statusClass(booking.status)">{{ booking.status }}</span>
+                  <select
+                    class="form-select form-select-sm status-select"
+                    [value]="booking.status"
+                    (change)="changeStatus(booking, $event)">
+                    @for (status of statuses; track status) {
+                      <option [value]="status">{{ status }}</option>
+                    }
+                  </select>
+                </div>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="5" class="text-center muted py-4">No bookings yet.</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>

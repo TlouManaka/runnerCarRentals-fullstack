@@ -2,12 +2,13 @@ using backend.Domain.Entities;
 
 namespace backend.Application.Common.Interfaces.Persistence;
 
-
-
 public interface IUserRepository
 {
-    
-    User? GetUserByEmail(string email);
+    Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
 
-    void Add(User user);
+    Task<User?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+
+    Task<bool> EmailExistsAsync(string email, CancellationToken cancellationToken = default);
+
+    Task AddAsync(User user, CancellationToken cancellationToken = default);
 }

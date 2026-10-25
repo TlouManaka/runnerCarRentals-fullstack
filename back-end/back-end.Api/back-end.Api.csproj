@@ -7,12 +7,19 @@
     <RootNamespace>back_end.Api</RootNamespace>
   </PropertyGroup>
 
-
-
   <ItemGroup>
     <ProjectReference Include="..\back-end.Application\back-end.Application.csproj" />
     <ProjectReference Include="..\back-end.Contracts\back-end.Contracts.csproj" />
     <ProjectReference Include="..\back-end.Infrastructure\back-end.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.21">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
   </ItemGroup>
 
 </Project>

@@ -1,13 +1,10 @@
 @host=http://localhost:5031
 
-POST {{host}}/auth/register
+POST {{host}}/api/auth/register
 Content-Type: application/json
 
 {
-    "fullName":"Jane Deo",
+    "fullName": "Jane Doe",
     "email": "jane@demo.com",
-    "password": "Secure123",
-    "driverLicenseNumber":"SDSAJKJASD",
-    "Token":"askdkdsa_msadk"
-    
+    "password": "Secure123"
 }

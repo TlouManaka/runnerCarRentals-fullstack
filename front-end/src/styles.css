@@ -42,3 +42,72 @@ body {
      color: var(--color-text-dark);
     }
 
+/* Shared page layout */
+.page {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.page-header h1 {
+  text-align: left;
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.muted {
+  color: var(--color-text-medium);
+}
+
+.surface {
+  background: var(--color-background-light);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+}
+
+/* Status badges */
+.status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-pending { background: #fff4e0; color: #9a6700; }
+.status-confirmed { background: #e2f4f4; color: #1f6f70; }
+.status-completed { background: #e7f6ec; color: #1e7a3c; }
+.status-cancelled { background: #fdecec; color: #a41616; }
+
+.btn-primary {
+  --bs-btn-bg: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-bg: #005f92;
+  --bs-btn-hover-border-color: #005f92;
+}
+
+.empty-state {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--color-text-medium);
+}
+

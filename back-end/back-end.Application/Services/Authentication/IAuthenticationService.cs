@@ -1,10 +1,14 @@
+using backend.Domain.Entities;
+
 namespace backend.Application;
 
 public interface IAuthenticationService
 {
+    Task<AuthenticationResult> LoginAsync(string email, string password, CancellationToken cancellationToken = default);
 
-    AuthenticationResult Login(string email, string password);
-
-    AuthenticationResult Register(string email, string password);
-
+    Task<AuthenticationResult> RegisterAsync(
+        string fullName,
+        string email,
+        string password,
+        CancellationToken cancellationToken = default);
 }

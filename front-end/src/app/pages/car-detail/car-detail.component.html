@@ -1,0 +1,128 @@
+<section class="page">
+  <a class="back-link" routerLink="/cars">&larr; Back to fleet</a>
+
+  @if (loading()) {
+    <p class="muted mt-3">Loading vehicle...</p>
+  } @else if (!car()) {
+    <div class="empty-state surface mt-3">
+      <h1 class="h4">Vehicle not found</h1>
+      <p class="mb-0">It may have been removed from the fleet.</p>
+    </div>
+  } @else {
+    <div class="row g-4 mt-1">
+      <div class="col-lg-7">
+        <img class="detail-image surface" [src]="car()!.imageUrl || 'assets/logo.svg'" [alt]="car()!.make + ' ' + car()!.model" />
+
+        <div class="surface detail-panel mt-4">
+          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
+            <div>
+              <h1>{{ car()!.make }} {{ car()!.model }}</h1>
+              <p class="muted mb-0">{{ car()!.year }} &middot; {{ car()!.licensePlate }}</p>
+            </div>
+            <span
+              class="status"
+              [class.status-confirmed]="car()!.isAvailable"
+              [class.status-cancelled]="!car()!.isAvailable">
+              {{ car()!.isAvailable ? 'Available' : 'Unavailable' }}
+            </span>
+          </div>
+
+          @if (car()!.description) {
+            <p class="mt-3 mb-0">{{ car()!.description }}</p>
+          }
+
+          <dl class="spec-grid mt-4">
+            <div>
+              <dt>Daily rate</dt>
+              <dd>{{ car()!.dailyRate | currency: 'ZAR' : 'symbol-narrow' : '1.0-0' }}</dd>
+            </div>
+            <div>
+              <dt>Seats</dt>
+              <dd>{{ car()!.seats }}</dd>
+            </div>
+            <div>
+              <dt>Transmission</dt>
+              <dd>{{ car()!.transmission }}</dd>
+            </div>
+            <div>
+              <dt>Fuel type</dt>
+              <dd>{{ car()!.fuelType }}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="surface booking-panel">
+          <h2 class="h5 mb-1">Book this vehicle</h2>
+          <p class="muted small">Pick your dates to see the total before you book.</p>
+
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="mb-3">
+              <label class="form-label" for="startDate">Pick-up date</label>
+              <input
+                id="startDate"
+                type="date"
+                class="form-control"
+                formControlName="startDate"
+                [min]="minDate"
+                (change)="checkAvailability()" />
+              @if (form.controls.startDate.touched && form.controls.startDate.invalid) {
+                <div class="text-danger small mt-1">Pick-up date is required.</div>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="endDate">Drop-off date</label>
+              <input
+                id="endDate"
+                type="date"
+                class="form-control"
+                formControlName="endDate"
+                [min]="minDate"
+                (change)="checkAvailability()" />
+              @if (form.controls.endDate.touched && form.controls.endDate.invalid) {
+                <div class="text-danger small mt-1">Drop-off date is required.</div>
+              }
+            </div>
+
+            @if (error()) {
+              <div class="alert alert-danger py-2 small" role="alert">{{ error() }}</div>
+            }
+
+            @if (checking()) {
+              <p class="muted small mb-2">Checking availability...</p>
+            }
+
+            @if (availability(); as result) {
+              <div class="availability-box" [class.unavailable]="!result.isAvailable">
+                <p class="mb-1">
+                  <strong>{{ result.isAvailable ? 'Available' : 'Not available' }}</strong>
+                  for {{ result.startDate | date: 'mediumDate' }} &ndash; {{ result.endDate | date: 'mediumDate' }}
+                </p>
+                <p class="mb-0">
+                  Estimated total:
+                  <strong>{{ result.estimatedTotal | currency: 'ZAR' : 'symbol-narrow' : '1.2-2' }}</strong>
+                </p>
+              </div>
+            }
+
+            @if (auth.isLoggedIn()) {
+              <button class="btn btn-primary w-100 mt-3" type="submit" [disabled]="booking()">
+                {{ booking() ? 'Booking...' : 'Request booking' }}
+              </button>
+            } @else {
+              <a class="btn btn-primary w-100 mt-3" [routerLink]="['/login']" [queryParams]="{ returnUrl: '/cars/' + carId }">
+                Sign in to book
+              </a>
+            }
+
+            <p class="muted small mb-0 mt-3">
+              Bookings start as <strong>Pending</strong> until an admin confirms them.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  }
+</section>

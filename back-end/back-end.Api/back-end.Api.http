@@ -1,6 +1,70 @@
-@back_end.Api_HostAddress = http://localhost:5031
+@host = http://localhost:5031
+@adminEmail = admin@runnercars.local
+@adminPassword = Admin123!
 
-GET {{back_end.Api_HostAddress}}/weatherforecast/
+### Register a customer
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{
+  "fullName": "Jane Doe",
+  "email": "jane@demo.com",
+  "password": "Secure123"
+}
+
+### Login as the seeded admin
+# @name adminLogin
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{adminEmail}}",
+  "password": "{{adminPassword}}"
+}
+
+@adminToken = {{adminLogin.response.body.token}}
+
+### List cars (public)
+GET {{host}}/api/cars
 Accept: application/json
 
-###
+### Search cars available for a date range
+GET {{host}}/api/cars?search=toyota&availableFrom=2026-11-01&availableTo=2026-11-05
+Accept: application/json
+
+### Check availability for a car
+GET {{host}}/api/bookings/availability?carId={{carId}}&startDate=2026-11-01&endDate=2026-11-05
+Accept: application/json
+
+### Add a car (admin)
+POST {{host}}/api/cars
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "make": "Kia",
+  "model": "Seltos",
+  "year": 2024,
+  "licensePlate": "JHB 200 GP",
+  "dailyRate": 700,
+  "seats": 5,
+  "transmission": "Automatic",
+  "fuelType": "Petrol",
+  "imageUrl": "https://images.unsplash.com/photo-1550355291-bbee04a92027",
+  "description": "Compact SUV for city and weekend trips.",
+  "isAvailable": true
+}
+
+### List all bookings (admin)
+GET {{host}}/api/bookings
+Authorization: Bearer {{adminToken}}
+Accept: application/json
+
+### Confirm a booking (admin)
+PATCH {{host}}/api/bookings/{{bookingId}}/status
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "status": "Confirmed"
+}

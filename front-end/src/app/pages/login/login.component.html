@@ -1,2 +1,37 @@
+<section class="auth-shell">
+  <div class="auth-card surface">
+    <p class="eyebrow">Welcome back</p>
+    <h1>Sign in</h1>
+    <p class="muted">Access your bookings and manage your rentals.</p>
 
-<h1>Welcome to Login Page</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input id="email" type="email" class="form-control" formControlName="email" autocomplete="email" />
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+          <div class="text-danger small mt-1">Enter a valid email address.</div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input id="password" type="password" class="form-control" formControlName="password" autocomplete="current-password" />
+        @if (form.controls.password.touched && form.controls.password.invalid) {
+          <div class="text-danger small mt-1">Password is required.</div>
+        }
+      </div>
+
+      @if (error()) {
+        <div class="alert alert-danger py-2 small" role="alert">{{ error() }}</div>
+      }
+
+      <button class="btn btn-primary w-100" type="submit" [disabled]="loading()">
+        {{ loading() ? 'Signing in...' : 'Sign in' }}
+      </button>
+    </form>
+
+    <p class="muted small mt-3 mb-0">
+      New here? <a routerLink="/register">Create an account</a>
+    </p>
+  </div>
+</section>

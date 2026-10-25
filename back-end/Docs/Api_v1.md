@@ -1,75 +1,20 @@
-# Runner Car Rental API
+# Runner Car Rental API — legacy draft
 
-- [RUNNERS CAR RENTAL API]
-    -[Auth](#auth)
-    --[Register](#register)
-     --- [Register Request](#register-request)
-     --- [Register Response](#register-response)
-    --[Login](#login)
-    --- [Login Request](#login-request)
-    --- [Login Response](#login-response)
-    -[Customer](#customer)
-    --[Create Profile](#create-profile)
-    --- [Create Profile Request](#create-profile-response)
-    --- [Ccreate Profile Response](#create-profile-response)
-    --[Update Profile](#update-profile)
-    --- [Update Profile Request](#update-profile-request)
-    --- [Update Profile Response](#update-profile-response)
-    --[Delete Profile](#delete-profile)
-    --- [Delete Profile Response](#delete-profile-response)
+> **Superseded.** This file was an early planning draft written before the API was implemented.
+> It described routes (`/auth/*`) and a customer-profile CRUD module that do not exist in the
+> current codebase. The implemented, verified API is documented in [`Api.md`](Api.md).
 
+## What is actually implemented
 
-# Auth
-### Register 
+| Area | Routes |
+| --- | --- |
+| Authentication | `POST /api/auth/register`, `POST /api/auth/login` |
+| Car catalog | `GET /api/cars`, `GET /api/cars/{id}` (public); `POST/PUT/DELETE /api/cars` (admin) |
+| Bookings | `GET /api/bookings/availability` (public), `POST /api/bookings`, `GET /api/bookings/mine`, `POST /api/bookings/{id}/cancel` (customer); `GET /api/bookings`, `PATCH /api/bookings/{id}/status` (admin) |
 
-```js
-POST{{host}}/auth/register
-```
-#### Register Request
+## Not implemented
 
-```json
-{
-    "email": "jane@demo.com",
-    "password": "Secure123"
-}
-```
+- Customer profile create/update/delete endpoints and driver-licence storage.
+- Payments, email notifications, file uploads for vehicle images.
 
-#### Register Response
-```json
-{
-    "eamil":"jane@demo.com",
-    "token":"eyjh..akjkjkdsad"
-}
-```
-### Login
-
-```js
-POST{{host}}/auth/login
-```
-
-#### Login Request
-
-```json
-{
-    "email": "jane@demo.com",
-    "password": "Secure123",
-}
-```
-#### Login Response
-
-```json
-{
-    "id": "3de9b18d-7c32-490d-ac79-97e6b4c54d81",
-    "email": "Secure123",
-    "token": "token"
-}
-```
-
-# Customer 
-```js
- POST{{host}}/customer/profile
-```
-#### Create Profile Request
-
-
-#### Create Profile Response
+The live API surface is also visible in Swagger at `http://localhost:5031/swagger` when the API runs in Development.

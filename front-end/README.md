@@ -1,59 +1,50 @@
-# FrontEnd
+# Runner Car Rentals — Angular client
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.17.
+Angular 19 application for browsing the fleet and managing bookings.
 
 ## Development server
 
-To start a local development server, run:
-
 ```bash
-ng serve
+npm install
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Open <http://localhost:4200>. Requests to `/api` are proxied to the ASP.NET Core API at
+`http://localhost:5031` (see `proxy.conf.json`), so start the backend first:
 
 ```bash
-ng generate component component-name
+cd ../back-end
+dotnet run --project back-end.Api
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Structure
+
+```
+src/app/
+├── core/
+│   ├── models/          # Car, Booking, Auth contracts
+│   ├── services/        # AuthService, CarService, BookingService
+│   ├── guards/          # authGuard, adminGuard
+│   ├── interceptors/    # bearer-token interceptor
+│   └── utils/           # API error extraction
+├── components/navbar/   # Role-aware navigation
+└── pages/
+    ├── home/            # Landing page + featured cars
+    ├── cars/            # Catalog with text/date filters
+    ├── car-detail/      # Vehicle details + booking form
+    ├── my-bookings/     # Customer booking list
+    ├── admin/           # Fleet CRUD + booking status management
+    ├── login/
+    └── create-account/
+```
+
+## Commands
 
 ```bash
-ng generate --help
+npm start        # dev server
+npm run build    # production build (SSR bundle included)
+npm test         # Karma/Jasmine unit tests
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Routes are rendered client-side (`RenderMode.Client`) because every page depends on the
+authenticated session and live API data.

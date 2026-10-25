@@ -1,0 +1,100 @@
+<section class="page">
+  <div class="page-header">
+    <div>
+      <p class="eyebrow">Our fleet</p>
+      <h1>Find your next rental</h1>
+      <p class="muted mb-0">Choose your dates to only see cars that are actually available.</p>
+    </div>
+  </div>
+
+  <form class="filter-bar surface" (ngSubmit)="applyFilters()">
+    <div class="filter-field">
+      <label class="form-label" for="search">Search</label>
+      <input
+        id="search"
+        name="search"
+        class="form-control"
+        placeholder="Make, model or plate"
+        [(ngModel)]="searchTerm" />
+    </div>
+
+    <div class="filter-field">
+      <label class="form-label" for="from">Pick-up</label>
+      <input
+        id="from"
+        name="from"
+        type="date"
+        class="form-control"
+        [min]="minDate"
+        [(ngModel)]="availableFrom" />
+    </div>
+
+    <div class="filter-field">
+      <label class="form-label" for="to">Drop-off</label>
+      <input
+        id="to"
+        name="to"
+        type="date"
+        class="form-control"
+        [min]="minDate"
+        [(ngModel)]="availableTo" />
+    </div>
+
+    <div class="filter-actions">
+      <button class="btn btn-primary" type="submit">Search</button>
+      <button class="btn btn-outline-secondary" type="button" (click)="clearFilters()">Reset</button>
+    </div>
+  </form>
+
+  @if (error()) {
+    <div class="alert alert-danger mt-3" role="alert">{{ error() }}</div>
+  }
+
+  @if (loading()) {
+    <p class="muted mt-4">Loading vehicles...</p>
+  } @else if (cars().length === 0) {
+    <div class="empty-state surface mt-4">
+      <h2 class="h5">No cars match your search</h2>
+      <p class="mb-0">Try different dates or clear the filters.</p>
+    </div>
+  } @else {
+    <p class="muted mt-3">{{ cars().length }} vehicle(s) available</p>
+
+    <div class="row g-4">
+      @for (car of cars(); track car.id) {
+        <div class="col-md-6 col-xl-4">
+          <article class="car-card surface h-100">
+            <img class="car-image" [src]="car.imageUrl || 'assets/logo.svg'" [alt]="car.make + ' ' + car.model" />
+
+            <div class="car-body">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <h2>{{ car.make }} {{ car.model }}</h2>
+                <span
+                  class="status"
+                  [class.status-confirmed]="car.isAvailable"
+                  [class.status-cancelled]="!car.isAvailable">
+                  {{ car.isAvailable ? 'Available' : 'Unavailable' }}
+                </span>
+              </div>
+
+              <p class="muted mb-2">
+                {{ car.year }} &middot; {{ car.seats }} seats &middot; {{ car.transmission }} &middot; {{ car.fuelType }}
+              </p>
+
+              @if (car.description) {
+                <p class="description muted">{{ car.description }}</p>
+              }
+
+              <div class="mt-auto">
+                <p class="price">
+                  {{ car.dailyRate | currency: 'ZAR' : 'symbol-narrow' : '1.0-0' }} <span>/ day</span>
+                </p>
+                <a class="btn btn-primary w-100" [routerLink]="['/cars', car.id]">View &amp; book</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      }
+    </div>
+  }
+</section>

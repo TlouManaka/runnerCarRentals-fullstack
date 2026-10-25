@@ -1,0 +1,26 @@
+# Build output
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+.vs/
+.vscode/*
+!.vscode/extensions.json
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+npm-debug.log*
+
+# Environment and secrets
+.env
+.env.*
+appsettings.Production.json
+appsettings.*.local.json
+
+# OS
+.DS_Store
+Thumbs.db

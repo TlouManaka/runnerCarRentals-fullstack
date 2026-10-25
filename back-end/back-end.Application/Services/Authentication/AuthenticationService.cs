@@ -1,72 +1,69 @@
-
-namespace backend.Application;
-
-using  backend.Application.Common.Interfaces.Authentication;
+using backend.Application.Common.Errors;
+using backend.Application.Common.Interfaces.Authentication;
 using backend.Application.Common.Interfaces.Persistence;
 using backend.Domain.Entities;
 
-public class AuhthenticationService : IAuthenticationService
+namespace backend.Application;
+
+public class AuthenticationService : IAuthenticationService
 {
-
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
+    private readonly IPasswordHasher _passwordHasher;
     private readonly IUserRepository _userRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public AuhthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
+    public AuthenticationService(
+        IJwtTokenGenerator jwtTokenGenerator,
+        IPasswordHasher passwordHasher,
+        IUserRepository userRepository,
+        IUnitOfWork unitOfWork)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
+        _passwordHasher = passwordHasher;
         _userRepository = userRepository;
+        _unitOfWork = unitOfWork;
     }
 
-    public AuthenticationResult Login(string email, string password)
+    public async Task<AuthenticationResult> LoginAsync(
+        string email,
+        string password,
+        CancellationToken cancellationToken = default)
     {
+        var user = await _userRepository.GetByEmailAsync(email.Trim().ToLowerInvariant(), cancellationToken)
+            ?? throw new UnauthorizedException("Incorrect email or password.");
 
-        // 1. Validate the user exists
-        if(_userRepository.GetUserByEmail(email) is not User user)
+        if (!_passwordHasher.Verify(password, user.PasswordHash))
         {
-
-            throw new Exception("User with given email does not exist.");
-            
-        }
-        // 2.Validate the password is correct 
-            if(user.Password != password)
-        {
-            throw new Exception("Invalid Password");
+            throw new UnauthorizedException("Incorrect email or password.");
         }
 
-         var token =  _jwtTokenGenerator.GenerateToken(user);
-
-
-        // 3.Create JWT token
-        return new AuthenticationResult(
-            user,
-            token
-
-        );
+        return new AuthenticationResult(user, _jwtTokenGenerator.GenerateToken(user));
     }
 
-    public AuthenticationResult Register( string email, string password)
+    public async Task<AuthenticationResult> RegisterAsync(
+        string fullName,
+        string email,
+        string password,
+        CancellationToken cancellationToken = default)
     {
+        var normalizedEmail = email.Trim().ToLowerInvariant();
 
-        //check if user already exists
-         if(_userRepository.GetUserByEmail(email) is not null)
+        if (await _userRepository.EmailExistsAsync(normalizedEmail, cancellationToken))
         {
-            throw new Exception("User with given email already exists.");
+            throw new ConflictException("An account with this email already exists.");
         }
-        //create user (generate unique ID)
-        var user  =  new User
+
+        var user = new User
         {
-            Email = email,
-            Password = password
+            FullName = fullName.Trim(),
+            Email = normalizedEmail,
+            PasswordHash = _passwordHasher.Hash(password),
+            UserRole = User.CustomerRole
         };
 
-        _userRepository.Add(user);
-     
-        
-        var token = _jwtTokenGenerator.GenerateToken(user);
-        return new AuthenticationResult(
-            user,
-            token);
+        await _userRepository.AddAsync(user, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+        return new AuthenticationResult(user, _jwtTokenGenerator.GenerateToken(user));
     }
-
-
 }

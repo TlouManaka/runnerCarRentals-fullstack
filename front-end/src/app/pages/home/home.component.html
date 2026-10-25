@@ -1,2 +1,93 @@
+<section class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">Runner Car Rentals</p>
+    <h1>Book the right car for every trip.</h1>
+    <p class="hero-copy">
+      Browse a live fleet, check real availability for your dates and manage your bookings in one place.
+    </p>
 
-<h1>This Home </h1>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" routerLink="/cars">Browse vehicles</a>
+      <a class="btn btn-outline-dark btn-lg" routerLink="/register">Create an account</a>
+    </div>
+
+    <ul class="hero-points">
+      <li>Instant availability check</li>
+      <li>Transparent daily pricing</li>
+      <li>Manage bookings online</li>
+    </ul>
+  </div>
+
+  <div class="hero-image" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
+      alt="" />
+  </div>
+</section>
+
+<section class="page">
+  <div class="page-header">
+    <div>
+      <p class="eyebrow">Featured fleet</p>
+      <h2>Popular right now</h2>
+    </div>
+    <a class="btn btn-outline-secondary" routerLink="/cars">View all vehicles</a>
+  </div>
+
+  @if (loading()) {
+    <p class="muted">Loading vehicles...</p>
+  } @else if (cars().length === 0) {
+    <div class="empty-state surface">No vehicles have been added yet.</div>
+  } @else {
+    <div class="row g-4">
+      @for (car of cars(); track car.id) {
+        <div class="col-md-6 col-lg-4">
+          <article class="car-card surface h-100">
+            <img class="car-image" [src]="car.imageUrl || 'assets/logo.svg'" [alt]="car.make + ' ' + car.model" />
+            <div class="car-body">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <h3>{{ car.make }} {{ car.model }}</h3>
+                <span class="status" [class.status-confirmed]="car.isAvailable" [class.status-cancelled]="!car.isAvailable">
+                  {{ car.isAvailable ? 'Available' : 'Unavailable' }}
+                </span>
+              </div>
+              <p class="muted mb-2">{{ car.year }} &middot; {{ car.seats }} seats &middot; {{ car.transmission }}</p>
+              <p class="price">{{ car.dailyRate | currency: 'ZAR' : 'symbol-narrow' : '1.0-0' }} <span>/ day</span></p>
+              <a class="btn btn-primary w-100" [routerLink]="['/cars', car.id]">View &amp; book</a>
+            </div>
+          </article>
+        </div>
+      }
+    </div>
+  }
+</section>
+
+<section class="how-it-works">
+  <div class="page">
+    <p class="eyebrow text-center">How it works</p>
+    <h2 class="text-center mb-4">Three steps to get on the road</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="step surface h-100">
+          <span>01</span>
+          <h3>Choose a vehicle</h3>
+          <p class="muted mb-0">Filter the fleet by name and pick-up dates to see what is actually available.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="step surface h-100">
+          <span>02</span>
+          <h3>Book your dates</h3>
+          <p class="muted mb-0">See the full price before you confirm and submit a booking request in seconds.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="step surface h-100">
+          <span>03</span>
+          <h3>Manage online</h3>
+          <p class="muted mb-0">Track the status of every booking and cancel upcoming trips from your dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

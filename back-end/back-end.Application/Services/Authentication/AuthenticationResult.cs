@@ -3,7 +3,6 @@ using backend.Domain.Entities;
 namespace backend.Application;
 
 public record AuthenticationResult(
-
-User user,
-string Token
+    User User,
+    string Token
 );
